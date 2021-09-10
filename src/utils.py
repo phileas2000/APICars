@@ -15,3 +15,6 @@ def check_duplicates_without_id(df: pd.DataFrame, index: str):
     if len(duplicates) > 0:
         print(duplicates)
     return
+
+def encoding_cat(series: pd.Series) -> pd.Series:
+    return series.astype('category').cat.codes
