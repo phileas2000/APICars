@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def check_unique(series: pd.Series):
     if series.nunique() != series.count():
@@ -17,4 +18,6 @@ def check_duplicates_without_id(df: pd.DataFrame, index: str):
     return
 
 def encoding_cat(series: pd.Series) -> pd.Series:
-    return series.astype('category').cat.codes
+    list_str = series.astype('category').cat.categories.to_list()
+    list_num = list(np.sort(series.astype('category').cat.codes.unique()))
+    return series.astype('category').cat.codes, dict(zip(list_str, list_num))
