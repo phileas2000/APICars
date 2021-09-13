@@ -11,28 +11,20 @@ import utils as utl
 def lin_reg_curbweight(df: pd.DataFrame):
     X = df.curbweight.values.reshape(-1, 1)
     y = df.price.values.reshape(-1, 1)
-    lin_reg = lin_reg_simple(X, y)
+    lin_reg = utl.lin_reg_simple(X, y)
     a = lin_reg.coef_[0][0]
     b = lin_reg.intercept_[0]
     print('coeff :', a)
     print('intercept', b)
     print('r² score :', lin_reg.score(X, y))
-    y_pred = lin_reg.predict(X)    
-    #plt.plot(X, a * X + b, color = 'red', alpha = 0.35)
-    #sns.scatterplot(X.reshape(1, -1)[0], y.reshape(1, -1)[0])
+    y_pred = lin_reg.predict(X)
     sns.regplot(X, y, line_kws={"color": "red", 'alpha': 0.35})
     plt.figure()
     residuals = y - y_pred
     sns.distplot(residuals)
-    #sns.residplot(x = residuals)
     print('kurtosis : ', st.kurtosis(residuals)[0])
     print('skewness : ', st.skew(residuals)[0])
     return
-
-def lin_reg_simple(X, y):
-    lin_reg = LinearRegression()
-    lin_reg.fit(X, y)
-    return lin_reg
 
 def lin_reg_multiple_price(df: pd.DataFrame):
     X = df[['curbweight', 'enginesize']]

@@ -2,7 +2,7 @@ import pandas as pd
 import utils as utl
 
 def cleaning_global() -> pd.DataFrame:
-    df = pd.read_csv("../data/RAW/cars.csv")
+    df = pd.read_csv("C:/Users/Simplon/Ecole_IA/APICars/data/RAW/cars.csv")
     utl.check_unique(df['car_ID'])
 
     df_positive = df[['wheelbase', 'carlength', 'carwidth', 'curbweight', 
