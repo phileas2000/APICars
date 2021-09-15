@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import pickle
 
-lin_reg = pickle.load(open('../model/linear_reg_model.sav', 'rb'))
+lin_reg = pickle.load(open('linear_reg_model.sav', 'rb'))
 
 app = FastAPI()
 
