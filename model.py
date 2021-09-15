@@ -1,9 +1,9 @@
 import pandas as pd
 import pickle
 
-import cleaning_utils as cln
-import modeling_utils as mdl
-import utils as utl
+import src.cleaning_utils as cln
+import src.modeling_utils as mdl
+import src.utils as utl
 
 df_og = cln.cleaning_global()
 df = df_og.copy()
@@ -19,5 +19,4 @@ X = df[['curbweight', 'enginesize']]
 y = df.price.values.reshape(-1, 1)
 lin_reg = utl.lin_reg_simple(X, y)
 
-file_path = '../model/linear_reg_model.sav'
-pickle.dump(lin_reg, open(file_path, 'wb'))
+pickle.dump(lin_reg, open("linear_reg_model.sav", 'wb'))

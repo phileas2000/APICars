@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import scipy.stats as st
 
-import utils as utl
+import src.utils as utl
 
 def lin_reg_curbweight(df: pd.DataFrame):
     X = df.curbweight.values.reshape(-1, 1)

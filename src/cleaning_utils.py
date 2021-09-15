@@ -1,5 +1,5 @@
 import pandas as pd
-import utils as utl
+import src.utils as utl
 
 def cleaning_global() -> pd.DataFrame:
     df = pd.read_csv("C:/Users/Simplon/Ecole_IA/APICars/data/RAW/cars.csv")
