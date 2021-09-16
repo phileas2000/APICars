@@ -21,4 +21,4 @@ async def read_index():
 def predict_price(request: Request, curbweight: int, enginesize: int, ):
     X = pd.DataFrame({'curbweight': [curbweight], 'enginesize': [enginesize]})
     y_pred = lin_reg.predict(X)[0][0]
-    return templates.TemplateResponse("index.html", {'request': request, 'price': y_pred})
+    return templates.TemplateResponse("index.html", {'request': request, 'price': round(y_pred, 2)})

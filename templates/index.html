@@ -97,7 +97,7 @@
         <h1>Prediction of price</h1>
         <div class="info">
           <input type="number" name="curbweight" placeholder="Curbweight" required>
-          <input type="number" name="enginesize" placeholder="Engine size"required>
+          <input type="number" name="enginesize" placeholder="Engine size" required>
           <!--<input type="text" name="name" placeholder="placeholder">
           <input type="text" name="name" placeholder="placeholder">
           -->
@@ -106,7 +106,7 @@
         <h1 id="predict"></h1>
         <script>
         if ({{price}} != NaN){
-          document.getElementById("predict").innerHTML = "Price: " + {{price}}
+          document.getElementById("predict").innerHTML = "Price: " + {{price}} + " $"
         }
         if ({{price}} < 0){
           document.getElementById("predict").innerHTML = "Inputs may have incorrect range or unit"
