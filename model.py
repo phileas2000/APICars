@@ -1,16 +1,12 @@
 import pandas as pd  
-import numpy as np  
-import matplotlib.pyplot as plt  
-import seaborn as seabornInstance 
-from sklearn.model_selection import train_test_split 
-from sklearn.linear_model import LinearRegression
+
 from sklearn import metrics
 import pickle
 import json
 
-from random import sample
 
-modele =pickle.load(open("LinearRegressionModel.sav", 'rb'))
+
+modele =pickle.load(open("RegressorSimple.sav", 'rb'))
 encoder =pickle.load(open("OrdinalEncoder.sav", 'rb'))
 
 def chargement(data):
@@ -37,10 +33,8 @@ def prediction(data):
     x = data.drop(columns=['price']).values.reshape(-1,1)
     y = data['price']
     data['predict'] = modele.predict(x)
-    return data['predict']
+    return data
     
-def score(data,modele):
+def score(data):
     return 'R2:'+ str(metrics.r2_score(data['price'], data['predict']))
 
-
-  
